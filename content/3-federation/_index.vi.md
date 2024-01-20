@@ -1,29 +1,23 @@
 ---
-title : "Athena Federation"
+title : "Giới thiệu dịch vụ"
 date :  "`r Sys.Date()`" 
 weight : 3 
 chapter : false
 pre : " <b> 3. </b> "
 ---
 
-### Truy vấn dữ liệu mọi nơi
+### Architecture
+Trong tài khoản AWS của bạn trên Event Engine, AWS CloudTrail Lake đã được cấu hình. CloudTrail Lake cho phép truy vấn dữ liệu CloudTrail bằng cách sử dụng SQL tiêu chuẩn. Trong workshop này, bạn sẽ truy vấn chúng từ Jupyter notebook chạy trên một instance Amazon SageMaker t2.medium, sử dụng SQL tiêu chuẩn ANSI. Kết quả của các truy vấn này được báo cáo trở lại Jupyter notebook để phân tích tiếp theo. Bạn cũng sẽ gửi các cuộc gọi SDK Python bằng thư viện boto3 để kiểm soát sự cố.
 
-Chạy các federated queries đối với databases, data warehouses, object stores, và non-relational data stores. Truy vấn Federated SQL cho phép chúng ta truy vấn dữ liệu được thiết lập từ bất kỳ nơi nào có dữ liệu đó. Chúng ta có thể sử dụng dữ liệu SQL thường dùng để JOIN trên nhiều nguồn dữ liệu để phân tích nhanh chóng, và lưu trữ kết quả trong Amazon S3 để sử dụng sau này. Truy vấn Athena federated cũng đưa ra truy vấn Federation SDK mới cho phép chúng ta viết trình kết nối nguồn dữ liệu của riêng mình để truy vấn các kho dữ liệu tùy chỉnh.
+### Architecture Diagram
+![Alt text](image.png)
 
-![Alt text](image-1.png)
+### Những dịch vụ AWS đã sử dụng
+**AWS CloudTrail Lake**
+[AWS CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) là một hệ thống lưu trữ dữ liệu quản lý, cho phép tổ chức tập hợp, lưu trữ không thể thay đổi và truy vấn sự kiện được ghi lại bởi CloudTrail để kiểm toán, điều tra bảo mật và sửa chữa sự cố vận hành. Nền tảng mới này đơn giản hóa các luồng công việc phân tích CloudTrail bằng cách tích hợp việc thu thập, lưu trữ, chuẩn bị và tối ưu hóa cho phân tích và truy vấn trong cùng một sản phẩm. Điều này loại bỏ nhu cầu duy trì các đường ống xử lý dữ liệu riêng lẻ kéo dài qua các nhóm và sản phẩm để phân tích sự kiện CloudTrail.
 
-### Federated Queries Labs!
-Amazon Athena sử dụng các nguồn dữ liệu chạy trên AWS Lambda để thực hiện các truy vấn federated. Một trình kết nối dữ liệu là một đoạn mã có thể chuyển giữa nguồn dữ liệu mục tiêu của chúng ta và Athena. Bạn có thể coi trình kết nối dữ liệu như một phần mở rộng của công cụ truy vấn của Athena. Khi một truy vấn được gửi đến một nguồn dữ liệu, Athena gọi trình kết nối dữ liệu tương ứng để xác định các phần của các bảng cần đọc, quản lý tính song song và đẩy các điều kiện lọc xuống. Dựa trên việc người dùng gửi truy vấn, các trình kết nối dữ liệu có thể cung cấp hoặc hạn chế truy cập vào các phần dữ liệu cụ thể. Bằng cách thực hiện các bài tập từ những bài thực hành này, chúng ta sẽ biết cách sử dụng các trình kết nối  dữ liệu Amazon Athena khác nhau để chạy các truy vấn federated. Kinh nghiệm với Amazon Athena sẽ hữu ích nhưng không bắt buộc. Hãy làm theo các bước sau một cách tuần tự để hoàn thành các bài thực hành sau:
+**Amazon SageMaker**
+[Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html) là một dịch vụ ML toàn diện. Trong workshop này, bạn sẽ sử dụng Amazon SageMaker để lưu trữ cuốn sách chạy phản ứng sự cố của mình dưới dạng Jupyter notebook. Điều này giúp quản lý ứng dụng Jupyter một cách đơn giản, vì tất cả được quản lý bởi instance Amazon SageMaker. Amazon SageMaker hỗ trợ Git một cách tự nhiên, cho phép bạn quản lý cuốn sách chạy phản ứng sự cố của mình bằng cách sử dụng Git repo để duy trì kiểm soát phiên bản và tăng cường sự cộng tác.
 
-### Nội dung
-- 3.1 [TPCH Database & Tables](3.1-tpch)
-- 3.2 [Data Sources](3.2-data-sources)
-- 3.3 [Prerequisites](3.3-prerequisites)
-- 3.4 [DynamoDB Connector](3.4dynamodb-connector)
-- 3.5 [Aurora Connector](3.5-aurora-connector)
-- 3.6 [HBase Connector](3.6-hbase)
-- 3.7 [Redis Connector](3.7-redis-connector)
-- 3.8 [Run Federated Queries](3.8-run-federated)
-- 3.9 [Visualize with QuickSight](3.9-visual)
-
-
+**Jupyter notebooks**
+[Jupyter notebooks](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html) là một ứng dụng web mã nguồn mở hỗ trợ hơn 100 ngôn ngữ khác nhau (gọi là kernels), bao gồm Python và SQL. Jupyter notebooks lý tưởng cho phản ứng sự cố, bạn có thể có mã nguồn thực, phương trình toán, trực quan hóa (bao gồm HTML, hình ảnh và video) và văn bản trình bày trong Jupyter notebook của mình, tạo ra một nguồn tài nguyên duy nhất để sử dụng, loại bỏ nhu cầu cho 100s kịch bản khác nhau để đạt được yêu cầu phản ứng sự cố của bạn.

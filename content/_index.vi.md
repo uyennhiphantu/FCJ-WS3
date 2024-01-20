@@ -1,23 +1,19 @@
 ---
-title : "Bắt đầu với Amazon Athena"
+title : "Xây dựng sổ tay phản ứng sự cố AWS bằng Jupyter notebooks và CloudTrail Lake"
 date :  "`r Sys.Date()`" 
 weight : 1 
 chapter : false
 ---
-# Làm việc với Amazon Athena
+Đây là workshop hướng dẫn về "Xây dựng sổ tay quản lý rủi ro AWS bằng Jupyter notebooks". 
 
-![Alt text](image.png)
-
-Trong bài lab này, chúng ta sẽ tìm hiểu về Athena Federation và User Defined Functions.
-
-Amazon Athena là dịch vụ interactive analytics, serverless, được xây dựng trên các open-source frameworks, hỗ trợ các định dạng file và open-table. Athena cung cấp một cách đơn giản, linh hoạt để phân tích hàng petabyte dữ liệu nơi nó tồn tại. Phân tích dữ liệu hoặc xây dựng ứng dụng từ data lake Amazon Simple Storage Service (S3) và 30 nguồn dữ liệu, bao gồm nguồn dữ liệu on-premises hoặc các hệ thống đám mây khác sử dụng SQL hoặc Python. Athena được xây dựng trên các công cụ Trino và Presto mã nguồn mở cũng như các Apache Spark frameworks mà không cần nỗ lực cung cấp hoặc cấu hình.
-
-![Alt text](image-1.png)
+Chúng ta sẽ sẽ khám phá hai sự kiện bảo mật tiềm năng đã được báo cáo. Chúng sẽ sử dụng [Jupyter notebook](https://jupyter.org/). chạy trên [Amazon SageMaker](https://aws.amazon.com/sagemaker/) để xây dựng sổ tay quản lý rủi ro bằng cách sử dụng [AWS CloudTrail Lake](https://aws.amazon.com/cloudtrail/) để thực hiện các cuộc điều tra. Chúng ta cũng sẽ sử dụng [AWS SDK cho Python - boto3](https://aws.amazon.com/sdk-for-python/) để thực hiện các hoạt động kiểm soát.
 
 ### Nội dung
 
  1. [Giới thiệu](1-introduce/)
- 2. [Các bước chuẩn bị](2-prepare/)
- 3. [Athena Federation](3-federation/)
- 4. [User Defined Functions](4-user-defined/)
- 5. [Dọn dẹp tài nguyên](5-cleanup/)
+ 2. [Cài đặt](2-setup/)
+ 3. [Giới thiệu dịch vụ](3-federation/)
+ 4. [IAM Investigation](4-iam-ives/)
+ 5. [EC2 Investigation](5-ec2-inves/)
+ 6. [Sổ tay quản lý rủi ro](6-incident-runbook/)
+ 7. [Dọn dẹp tài nguyên](7-teardown/)

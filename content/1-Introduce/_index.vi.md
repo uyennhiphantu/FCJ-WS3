@@ -1,20 +1,30 @@
 ---
-title : "Amazon Federation và User Defined Functions là gì?"
+title : "Giới thiệu"
 date :  "`r Sys.Date()`" 
 weight : 1 
 chapter : false
 pre : " <b> 1. </b> "
 ---
-Ngày nay, những vấn đề mà doanh nghiệp đang gặp phải có thể bao gồm về hiệu suất truy vấn kém, khả năng mở rộng thấp, hoặc khả năng hiển thị dữ liệu không linh hoạt. Do đó, mục đích của workshop lần này nhằm cung cấp những kiến thức cơ bản của Amazon Athena để có thể giải quyết những nhu cầu cơ bản mà doanh nghiệp đang gặp phải. Workshop này không bắt buộc bạn phải có kiến thức về Amazon Athena, nhưng nếu có thì nó là một lợi thế.
+### Cấp độ kỹ năng
+Workshop này ở cấp độ 200-300 (trung bình) và giả định rằng chúng ta đã có kinh nghiệm sử dụng AWS console, về basic building blocks của labs; AWS CloudTrail, AWS CloudTrail Lake, AWS CloudFormation và Amazon SageMaker, cùng với một số kinh nghiệm về SQL và Python (bao gồm AWS SDK hay còn gọi là boto3). Tất cả các tài nguyên này sẽ được tạo sẵn cho chúng ta bằng cách sử dụng AWS CloudFormation, cùng với sổ tay quản lý rủi ro mẫu ban đầu.
 
-Tiếp nối với các khái niệm cơ bản và thực hành về Amazon Athena. Chúng ta sẽ tiếp nối với Athena Federation và User Defined Functions. 
-Athena Federation và User Defined Functions (UDFs) đều là các công cụ quan trọng trong việc giải quyết các thách thức về xử lý và phân tích dữ liệu mà các doanh nghiệp thường gặp phải ngày nay.
+### Đối tượng mục tiêu
+Workshop này dành cho các Solutions Architects, Security Engineers và Incident responders. Danh sách này không đầy đủ và các vai trò công việc khác cũng sẽ có lợi ích từ điều tra chọn mẫu.
 
-Athena Federation cho phép tích hợp dữ liệu từ nhiều nguồn khác nhau, mở rộng khả năng truy cập và sử dụng dữ liệu từ các hệ thống khác nhau. Điều này giải quyết vấn đề về khả năng mở rộng thấp và khó khăn trong việc truy cập vào dữ liệu từ các nguồn không đồng nhất, giúp doanh nghiệp hiểu rõ hơn về toàn bộ hệ thống thông tin của mình.
+### Kết quả
+Sau khi hoàn thành workshop này, chúng ta sẽ có khả năng trình bày được sự cần thiết của sổ tay quản lý rủi ro, hiểu rõ AWS building blocks cần thiết để thành công và mở rộng sổ tay phản ứng sự cố mẫu để áp dụng cho doanh nghiệp của bạn và thêm chức năng phù hợp với yêu cầu của bạn.
 
-Trong khi đó, User Defined Functions (UDFs) cho phép tạo ra các hàm tùy chỉnh, giúp doanh nghiệp thực hiện các xử lý dữ liệu đặc thù và phức tạp. Các UDFs cung cấp sức mạnh và linh hoạt cho việc tối ưu hóa truy vấn và phân tích dữ liệu, giúp doanh nghiệp tìm ra thông tin quan trọng và đưa ra quyết định hiệu quả hơn.
+### Yêu cầu
+Tại một sự kiện chạy AWS, workshop này được thực hiện bằng cách sử dụng [AWS EventEngine](https://dashboard.eventengine.run/login) trong khu vực us-east-1. Bạn cũng có thể thực hiện điều này trong tài khoản AWS của riêng bạn, nhưng chúng tôi khuyến nghị bạn nên sử dụng một tài khoản **non-production account**. Có thể hữu ích nếu bạn đã cài đặt AWS CLI trên máy tính của bạn như một phương thức truy cập thay thế, hướng dẫn có sẵn trong [AWS CLI v2 documentation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-Nhờ vào Athena Federation và User Defined Functions, các doanh nghiệp có thể nhanh chóng truy cập và sử dụng dữ liệu từ nhiều nguồn khác nhau, cũng như tối ưu hóa quá trình xử lý và phân tích dữ liệu, giúp họ có cái nhìn toàn diện và chi tiết hơn về hoạt động kinh doanh, từ đó đưa ra những quyết định thông minh và hiệu quả.
+### Thời gian cần thiết
+Tổng thời gian workshop sẽ mất khoảng 120 phút, trong đó có 90 phút thực hành và 30 phút cho phần trình bày và câu hỏi & đáp.
+
+### Chi phí
+Có chi phí liên quan với workshop này để chạy các AWS resources trong tài khoản AWS của bạn. Chi phí dự kiến cho workshop này sẽ dưới $0,50 mỗi ngày.
+
+## Dọn dẹp tài nguyên
+Hướng dẫn sẽ có sẵn cuối workshop để dọn dẹp môi trường. Nếu bạn không hoàn thành toàn bộ workshop, hãy đảm bảo bạn vẫn tuân theo hướng dẫn dọn dẹp để tránh chi phí bổ sung.
 
 
 
